@@ -1,0 +1,8 @@
+.roundedProfilePhoto {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('../../../assets/img/avatar.png');
+}

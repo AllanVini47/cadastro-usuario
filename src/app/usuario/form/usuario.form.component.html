@@ -1,1 +1,48 @@
-<p>usuario form works!</p>
+<mat-card-content class="mt-5">
+  <form class="d-flex flex-column flexwrap" [formGroup]="usuarioForm">
+    <mat-form-field appearance="fill" class="my-2" *ngIf="!isCreate">
+      <mat-label>Id</mat-label>
+      <input matInput [readonly]="true" formControlName="Id" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="my-2">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="Nome" />
+      <mat-error *ngIf="usuarioForm.get('Nome')?.hasError('required')"
+        >Nome é obrigatório</mat-error
+      >
+      <mat-error *ngIf="usuarioForm.get('Nome')?.hasError('minlength')"
+        >Nome precisa ter no mínimo 3 caracteres</mat-error
+      >
+      <mat-error *ngIf="usuarioForm.get('Nome')?.hasError('maxlength')"
+        >Nome precisa ter no máximo 50 caracteres</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="my-2">
+      <mat-label>Data de Nascimento</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="DataNascimento"
+      />
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="usuarioForm.get('DataNascimento')?.hasError('required')"
+        >Data de Nascimento é obrigatório</mat-error
+      >
+    </mat-form-field>
+    <div class="my-2 d-flex flexrow">
+      <div class="mr-2">Foto:</div>
+      <div class="px-3"><img [src]="model.Foto" class="roundedProfilePhoto"/></div>
+      <input
+        type="file"
+        class="ml-2"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+  </form>
+</mat-card-content>
+<mat-card-actions class="p-3">
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="usuarioForm.invalid">{{ submitText }}</button>
+  <button mat-raised-button (click)="onBack()">Voltar</button>
+</mat-card-actions>
