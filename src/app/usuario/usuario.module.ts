@@ -7,6 +7,9 @@ import { UsuarioCreateComponent } from './create/usuario.create.component';
 import { UsuarioEditComponent } from './edit/usuario.edit.component';
 import { UsuarioDeleteComponent } from './delete/usuario.delete.component';
 import { UsuarioFormComponent } from './form/usuario.form.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -15,8 +18,14 @@ import { UsuarioFormComponent } from './form/usuario.form.component';
     UsuarioCreateComponent,
     UsuarioEditComponent,
     UsuarioDeleteComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
   ],
-  imports: [CommonModule, routing],
+  imports: [
+    CommonModule,
+    routing,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+  ],
 })
 export class UsuarioModule {}

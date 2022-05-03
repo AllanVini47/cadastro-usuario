@@ -1,1 +1,70 @@
-{}
+{
+  "usuarios": [
+    {
+      "Id": 1,
+      "Nome": "João",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "joao.jpg"
+    },
+    {
+      "Id": 2,
+      "Nome": "Maria",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "maria.jpg"
+    },
+    {
+      "Id": 3,
+      "Nome": "José",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "jose.jpg"
+    },
+    {
+      "Id": 4,
+      "Nome": "Pedro",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "pedro.jpg"
+    },
+    {
+      "Id": 5,
+      "Nome": "Paulo",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "paulo.jpg"
+    },
+    {
+      "Id": 6,
+      "Nome": "Carlos",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "carlos.jpg"
+    },
+    {
+      "Id": 7,
+      "Nome": "Ana",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "ana.jpg"
+    },
+    {
+      "Id": 8,
+      "Nome": "Clara",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "clara.jpg"
+    },
+    {
+      "Id": 9,
+      "Nome": "Júlia",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "julia.jpg"
+    },
+    {
+      "Id": 10,
+      "Nome": "Márcia",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "marcia.jpg"
+    },
+    {
+      "Id": 11,
+      "Nome": "Paula",
+      "DataNascimento": "2022-05-03T02:30:21.790Z",
+      "Foto": "paula.jpg"
+    }
+  ]
+}
