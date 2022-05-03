@@ -24,7 +24,7 @@ import { IUsuarioDataSource, UsuarioService } from './usuario.service';
 export class UsuarioListComponent implements OnInit, AfterViewInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
 
-  public columnsToDisplay = ['Id', 'Nome', 'DataNascimento', 'Foto', 'Acoes'];
+  public columnsToDisplay = ['id', 'nome', 'dataNascimento', 'foto', 'acoes'];
   public dataSource = new MatTableDataSource<Usuario>();
 
   public pageSize: number = 5;
