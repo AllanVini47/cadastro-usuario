@@ -1,4 +1,4 @@
 <mat-card>
   <mat-card-title>Editar usuário</mat-card-title>
-  <app-usuario-form></app-usuario-form>
+  <app-usuario-form #formComponent [submitText]="'Salvar'" [model]="model" (onSubmitClicked)="onSubmit($event)" (onBackClicked)="onBack()"></app-usuario-form>
 </mat-card>

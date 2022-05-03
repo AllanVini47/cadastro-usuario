@@ -9,10 +9,10 @@ import { UsuarioListComponent } from './usuario.list.component';
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: 'list', component: UsuarioListComponent },
-  { path: 'display', component: UsuarioDisplayComponent },
+  { path: 'display/:id', component: UsuarioDisplayComponent },
   { path: 'create', component: UsuarioCreateComponent },
-  { path: 'edit', component: UsuarioEditComponent },
-  { path: 'delete', component: UsuarioDeleteComponent },
+  { path: 'edit/:id', component: UsuarioEditComponent },
+  { path: 'delete/:id', component: UsuarioDeleteComponent },
 ];
 
 export const routing = RouterModule.forChild(routes);

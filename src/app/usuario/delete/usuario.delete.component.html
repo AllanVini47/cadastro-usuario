@@ -1,4 +1,4 @@
 <mat-card>
   <mat-card-title>Deletar usuário</mat-card-title>
-  <app-usuario-form></app-usuario-form>
+  <app-usuario-form #formComponent [submitText]="'Excluir'" [isDelete]="true" [readonly]="true" [model]="model" (onSubmitClicked)="onSubmit($event)" (onBackClicked)="onBack()"></app-usuario-form>
 </mat-card>

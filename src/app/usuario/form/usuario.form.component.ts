@@ -9,14 +9,10 @@ import { Usuario } from 'src/app/models/usuario.model';
 })
 export class UsuarioFormComponent implements OnInit {
   @Input() isCreate?: boolean = false;
+  @Input() isDelete?: boolean = false;
   @Input() readonly?: boolean = false;
   @Input() submitText: string = 'Submit';
-  @Input() model: Usuario = new Usuario({
-    Id: 1,
-    Nome: 'a',
-    DataNascimento: new Date(),
-    Foto: '',
-  });
+  @Input() model: Usuario = new Usuario();
 
   @Output() onSubmitClicked: EventEmitter<Usuario> = new EventEmitter<Usuario>();
   @Output() onBackClicked: EventEmitter<void> = new EventEmitter<void>();
@@ -27,17 +23,22 @@ export class UsuarioFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuarioForm = this._formBuilder.group({
-      Id: this._formBuilder.control([this.model.Id]),
-      Nome: this._formBuilder.control(
-        [this.model.Nome],
+      id: this._formBuilder.control(this.model.id),
+      nome: this._formBuilder.control(
+        this.model.nome,
         [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
       ),
-      DataNascimento: this._formBuilder.control([
-        this.model.DataNascimento,
+      dataNascimento: this._formBuilder.control(
+        this.model.dataNascimento,
         [Validators.required],
-      ]),
-      Foto: this._formBuilder.control([this.model.Foto]),
+      ),
+      foto: this._formBuilder.control(this.model.foto),
     });
+  }
+
+  public updateFormGroup(model: Usuario): void  {
+    this.model = model;
+    this.usuarioForm.patchValue(this.model);
   }
 
   public onFileSelected(event: any) {
@@ -50,8 +51,8 @@ export class UsuarioFormComponent implements OnInit {
       };
 
       reader.onload = () => {
-        this.usuarioForm.get('Foto')?.patchValue(reader.result as string);
-        this.model.Foto = reader.result as string;
+        this.usuarioForm.get('foto')?.patchValue(reader.result as string);
+        this.model.foto = reader.result as string;
       }
 
       reader.readAsDataURL(file);

@@ -1,13 +1,13 @@
 ﻿export class Usuario {
-  public Id: number = 0;
-  public Nome: string = '';
-  public DataNascimento: Date = new Date();
-  public Foto: string = '';
+  public id: number = 0;
+  public nome: string = '';
+  public dataNascimento: Date = new Date();
+  public foto: string = '';
 
   constructor(obj?: any) {
-    this.Id = (obj && obj.Id) || 0;
-    this.Nome = (obj && obj.Nome) || null;
-    this.DataNascimento = (obj && obj.DataNascimento) || null;
-    this.Foto = (obj && obj.Foto) || null;
+    this.id = (obj && obj.id) || 0;
+    this.nome = (obj && obj.nome) || null;
+    this.dataNascimento = (obj && obj.dataNascimento) || null;
+    this.foto = (obj && obj.foto) || null;
   }
 }

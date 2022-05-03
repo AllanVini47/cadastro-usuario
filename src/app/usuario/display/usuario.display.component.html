@@ -1,4 +1,4 @@
 <mat-card>
   <mat-card-title>Visualização do usuário</mat-card-title>
-  <app-usuario-form></app-usuario-form>
+  <app-usuario-form #formComponent [readonly]="true" [model]="model" (onBackClicked)="onBack()"></app-usuario-form>
 </mat-card>

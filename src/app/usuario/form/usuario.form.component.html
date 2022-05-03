@@ -2,11 +2,11 @@
   <form class="d-flex flex-column flexwrap" [formGroup]="usuarioForm">
     <mat-form-field appearance="fill" class="my-2" *ngIf="!isCreate">
       <mat-label>Id</mat-label>
-      <input matInput [readonly]="true" formControlName="Id" />
+      <input matInput [readonly]="true" formControlName="id" />
     </mat-form-field>
     <mat-form-field appearance="fill" class="my-2">
       <mat-label>Nome</mat-label>
-      <input matInput formControlName="Nome" />
+      <input matInput formControlName="nome" />
       <mat-error *ngIf="usuarioForm.get('Nome')?.hasError('required')"
         >Nome é obrigatório</mat-error
       >
@@ -22,19 +22,20 @@
       <input
         matInput
         [matDatepicker]="picker"
-        formControlName="DataNascimento"
+        formControlName="dataNascimento"
       />
       <mat-hint>DD/MM/YYYY</mat-hint>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-datepicker-toggle matSuffix [for]="picker" *ngIf="!readonly"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>
       <mat-error *ngIf="usuarioForm.get('DataNascimento')?.hasError('required')"
         >Data de Nascimento é obrigatório</mat-error
       >
     </mat-form-field>
     <div class="my-2 d-flex flexrow">
       <div class="mr-2">Foto:</div>
-      <div class="px-3"><img [src]="model.Foto" class="roundedProfilePhoto"/></div>
+      <div class="px-3"><img [src]="model.foto" class="roundedProfilePhoto"/></div>
       <input
+      *ngIf="!readonly"
         type="file"
         class="ml-2"
         (change)="onFileSelected($event)"
@@ -43,6 +44,6 @@
   </form>
 </mat-card-content>
 <mat-card-actions class="p-3">
-  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="usuarioForm.invalid">{{ submitText }}</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="usuarioForm.invalid" *ngIf="!readonly || isDelete">{{ submitText }}</button>
   <button mat-raised-button (click)="onBack()">Voltar</button>
 </mat-card-actions>
